@@ -9,3 +9,8 @@ Derived from many blog posts, websites, online discussions and experiences.
 
 ###### MVVM notes
 - ...
+
+---
+- To contribute, add comment to these issues [clean architecture issue](https://github.com/jemshit/android_architecture_notes/issues/1), [mvp issue](https://github.com/jemshit/android_architecture_notes/issues/2), [mvvm issue](https://github.com/jemshit/android_architecture_notes/issues/3)
+
+- To discuss, create new issue.
