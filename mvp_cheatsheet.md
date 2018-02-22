@@ -187,7 +187,7 @@ message, and this is part of your business logic" [10].
     our personal experiences we can say that this is very useful
     especially if you work in a team." [5]
 
-#### Solutions for **Orientation Change** problem:
+### Solutions for **Orientation Change** problem:
 
 -   Using static Presenter to retain Presenter
 
@@ -213,7 +213,7 @@ message, and this is part of your business logic" [10].
 -   Save View's state (loading, showing error...) inside View
     (Activity...) itself
 
-#### Code Repositories
+### Code Repositories
 
 -   https://github.com/remind101/android-arch-sample *(Uses
     PresenterManager for retaining Presenter)*
@@ -241,7 +241,7 @@ message, and this is part of your business logic" [10].
 
 -   https://github.com/MindorksOpenSource/android-mvp-architecture
 
-#### Bonus
+### Bonus
 
 **1. Configuration Change**: [6]
 ![Configuration Change](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/configuration_change.png)
