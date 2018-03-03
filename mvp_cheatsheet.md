@@ -17,6 +17,8 @@ Flow goes like: **User-\> View-\> Presenter-\> Model**
 ![MVP Android Diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvp_android_diagram.png)   
 Figure 1: MVP Android Diagram [4]
 
+"...One common attribute of MVP is that there has to be a **lot of two-way dispatching.** For example, when someone clicks the "Save" button, the event handler delegates to the Presenter's "OnSave" method. Once the save is completed, the Presenter will then call back the View through its interface so that the View can display that the save has completed." [19]
+
 "When control goes from View to Presenter and then from Presenter to
 Model it is just a direct flow, it is easy to write code like this. You
 get an easy '*User -> View -> Presenter -> Model -> Data*' sequence.
@@ -206,6 +208,16 @@ should be displayed because the data is ready to be displayed" [5].
 
 "The Presenter in MVP, presents user actions to the backend system; after getting the response it presents the response to the users, whereas the **Controller in the MVC pattern doesn’t mediate between Model and the View**, it doesn’t update the view, **it just mediates between user actions and model.**" [18]
 
+"**In the MVC, the Controller is responsible for determining which View to display in response to any action** including when the application loads. *This differs from MVP where actions route through the View to the Presenter.* **In MVC, every action in the View correlates with a call to a Controller along with an action.** In the web each action involves a call to a URL on the other side of which there is a Controller who responds. Once that Controller has completed its processing, it will return the correct View. The sequence continues in that manner throughout the life of the application:
+
+Action in the View  
+    -> Call to Controller  
+    -> Controller Logic  
+    -> Controller returns the View.
+
+One other big difference about MVC is that the View does not directly bind to the Model. **The view simply renders, and is completely stateless.** *In implementations of MVC the View usually will not have any logic in the code behind. This is contrary to MVP where it is absolutely necessary because, if the View does not delegate to the Presenter, it will never get called.*" [19]
+
+"...**in MVC, controller methods are based on behaviors** -- in other words, *you can map multiple views (but same behavior) to a single controller.* **In MVP, the presenter is coupled closer to the view, and usually results in a mapping that is closer to one-to-one,** i.e. a view action maps to its corresponding presenter's method. You typically wouldn't map another view's actions to another presenter's (from another view) method." [20]
 
 #### Solutions for **Orientation Change** problem:
 
@@ -374,6 +386,14 @@ https://overflow.buffer.com/2017/12/21/even-map-though-data-model-mapping-androi
 [17] M. Fowler, "GUI Architectures," 18 07 2006. [Online]. Available: https://martinfowler.com/eaaDev/uiArchs.html. [Accessed 26 02 2018].
 
 [18] Manoj Jaggavarapu, "Presentation Patterns : MVC, MVP, PM, MVVM," 02 05 2012. [Online]. Available: https://manojjaggavarapu.wordpress.com/2012/05/02/presentation-patterns-mvc-mvp-pm-mvvm/. [Accessed 03 03 2018].
+[17] M. Fowler, "GUI Architectures," 18 07 2006. [Online]. Available: https://martinfowler.com/eaaDev/uiArchs.html. [Accessed 26 02 2018].
+
+[19] "What are MVP and MVC and what is the difference?
+," [Online]. Available: https://stackoverflow.com/a/101561/3736955. [Accessed 03 03 2018].
+[17] M. Fowler, "GUI Architectures," 18 07 2006. [Online]. Available: https://martinfowler.com/eaaDev/uiArchs.html. [Accessed 26 02 2018].
+
+[20] "What are MVP and MVC and what is the difference?
+," [Online]. Available: https://stackoverflow.com/questions/2056/what-are-mvp-and-mvc-and-what-is-the-difference#comment67878328_101561. [Accessed 03 03 2018].
 
 ---
 Last Edited: 03.03.2018
