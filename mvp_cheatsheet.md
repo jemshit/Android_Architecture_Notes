@@ -17,37 +17,13 @@ Flow goes like: **User-\> View-\> Presenter-\> Model**
 ![MVP Android Diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvp_android_diagram.png)   
 Figure 1: MVP Android Diagram [4]
 
-"From our point of view *MVP is not a variant or enhancement* *of MVC*
-because that would mean that the Controller gets replaced by the
-Presenter. In our opinion **MVP wraps around MVC**. Take a look at your
-MVC powered app. The Presenter sits in the middle between controller and
-model like this:" [5]
-
-![MVP vs MVC](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvc_vs_mvp.png)   
-Figure 2: MVP difference from MVC [5]
-
-"In our opinion the *Presenter does not replace the Controller*. Rather
-the Presenter coordinates or supervises **the View which the Controller
-is part of**. The Controller is the component that handles
-the click events and calls the corresponding Presenter methods. The
-Controller is the responsible component to control animations like
-hiding ProgressBar and displaying ListView instead. The Controller is
-listening for scroll events on the ListView i.e. to do some parallax
-item animations or scroll the toolbar in and out while scrolling the
-ListView. **So all that UI related stuff still gets controlled by a
-Controller and not by a Presenter** (i.e. *Presenter should
-not be an OnClickListener*). The Presenter is responsible to **coordinate
-the overall state** of the view layer (composed of UI widgets
-and Controller). So it's the job of the Presenter to tell the view layer
-that the loading animation should be displayed now or that the ListView
-should be displayed because the data is ready to be displayed" [5].
-
 "When control goes from View to Presenter and then from Presenter to
 Model it is just a direct flow, it is easy to write code like this. You
 get an easy '*User -> View -> Presenter -> Model -> Data*' sequence.
 But when control goes like this: '*User -> View -> Presenter -> View
 -> Presenter -> Model -> Data*', it just violates KISS principle.
 **Don't play ping-pong between your view and presenter**" [6].
+
 
 ## Model
 
@@ -141,16 +117,17 @@ you don't write the validation logic inside the view but inside the
 presenter. Your view should just collect the username and password and
 send them to the presenter" [8].
 
+"You can also move all the way to having the presenter do all the manipulation of the widgets. This style, which I call **Passive View** isn't part of the original descriptions of MVP but got developed as people explored *testability issues*. I'm going to talk about that style later, but that style is one of the flavors of MVP.” [17]
+
+![Passive View Diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvp_passive_view.png)
+
+
+"The direction behind Bower and McGlashan was what I'm calling **Supervising Controller**, where the view handles a good deal of the view logic that can be described declaratively and the presenter then comes in to handle more complex cases."[17]
+
 "The MVP pattern can also be implemented such that the View knows of
-the model. The view responds to state changes in the model for simple UI
-updates, while the presenter handles more complex UI logic. This more
-complex pattern is sometimes referred to as **Supervising Controller**.
-In Android, this can be accomplished by the Model using Java's
-Observable class and the View implementing the Observer interface; when
-something changes in the Model, it can call the Observable's
-notifyObservers method. It can also be implemented with Android's
-Handler class; when something changes in the Model, it can send a
-message to a handler that the View injects into it" [2].
+the model. The view responds to state changes in the model for simple UI updates, while the presenter handles more complex UI logic. This more complex pattern is sometimes referred to as **Supervising Controller**. In Android, this can be accomplished by the Model using Java's Observable class and the View implementing the Observer interface; when something changes in the Model, it can call the Observable's notifyObservers method. It can also be implemented with Android's Handler class; when something changes in the Model, it can send a message to a handler that the View injects into it" [2].
+
+![Supervising Controller Diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvp_supervising_controller.png)
 
 "*The view should concern only about any necessary request parameters
 to restore the state*" [8]. It shouldn't save presenter or data
@@ -187,7 +164,50 @@ message, and this is part of your business logic" [10].
     our personal experiences we can say that this is very useful
     especially if you work in a team." [5]
 
-### Solutions for **Orientation Change** problem:
+
+#### MVP vs MVC
+- "From our point of view *MVP is not a variant or enhancement* *of MVC*
+because that would mean that the Controller gets replaced by the
+Presenter. In our opinion **MVP wraps around MVC**. Take a look at your
+MVC powered app. The Presenter sits in the middle between controller and
+model like this:" [5]
+
+![MVP vs MVC](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvc_vs_mvp.png)   
+Figure 2: MVP difference from MVC [5]
+
+- "In our opinion the *Presenter does not replace the Controller*. Rather
+the Presenter coordinates or supervises **the View which the Controller
+is part of**. The Controller is the component that handles
+the click events and calls the corresponding Presenter methods. The
+Controller is the responsible component to control animations like
+hiding ProgressBar and displaying ListView instead. The Controller is
+listening for scroll events on the ListView i.e. to do some parallax
+item animations or scroll the toolbar in and out while scrolling the
+ListView. **So all that UI related stuff still gets controlled by a
+Controller and not by a Presenter** (i.e. *Presenter should
+not be an OnClickListener*). The Presenter is responsible to **coordinate
+the overall state** of the view layer (composed of UI widgets
+and Controller). So it's the job of the Presenter to tell the view layer
+that the loading animation should be displayed now or that the ListView
+should be displayed because the data is ready to be displayed" [5].
+
+- “The first element of Potel is to treat the view as a structure of widgets, widgets that correspond to the controls of the Forms and Controls model and *remove any view/controller separation*. **The view of MVP is a structure of these widgets. It doesn't contain any behavior that describes how the widgets react to user interaction.** *The active reaction to user acts lives in a separate presenter object. The fundamental handlers for user gestures still exist in the widgets, but these handlers merely pass control to the presenter…* As the Presenter updates the (domain) model, the view is updated through the same *Observer Synchronization* approach that MVC uses.” [17]
+
+- "MVP uses a Supervising Controller (a presenter when view is dumb) to manipulate the model. **Widgets hand off user gestures** to the Supervising Controller. *Widgets aren't separated into views and controllers.* You can think of presenters as being like controllers but without the initial handling of the user gesture. However it's also important to note that presenters are typically at the form level, rather than the widget level - this is perhaps an even bigger difference." [17]
+
+- "...Furthermore the presenter is welcome to directly access widgets for behaviors that don't fit into the Observer Synchronization." [17]
+
+
+###### MVP soundbites:
+- "User gestures are handed off by the widgets to a Supervising Controller." [17]
+- "The presenter coordinates changes in a domain model." [17]
+- "Different variants of MVP handle view updates differently. These vary from using. Observer Synchronization to having the presenter doing all the updates with a lot of ground in-between." [17]
+
+
+"The Presenter in MVP, presents user actions to the backend system; after getting the response it presents the response to the users, whereas the **Controller in the MVC pattern doesn’t mediate between Model and the View**, it doesn’t update the view, **it just mediates between user actions and model.**" [18]
+
+
+#### Solutions for **Orientation Change** problem:
 
 -   Using static Presenter to retain Presenter
 
@@ -213,7 +233,7 @@ message, and this is part of your business logic" [10].
 -   Save View's state (loading, showing error...) inside View
     (Activity...) itself
 
-### Code Repositories
+#### Code Repositories
 
 -   https://github.com/remind101/android-arch-sample *(Uses
     PresenterManager for retaining Presenter)*
@@ -241,7 +261,7 @@ message, and this is part of your business logic" [10].
 
 -   https://github.com/MindorksOpenSource/android-mvp-architecture
 
-### Bonus
+#### Bonus
 
 **1. Configuration Change**: [6]
 ![Configuration Change](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/configuration_change.png)
@@ -292,8 +312,7 @@ completely restore an application in any possible case:
     must ensure reliability and possibility to restore presenter state
     later even if process is destroyed" [15]
 
-References
-----------
+## References
 
 [1] "Model-View-Presenter," [Online]. Available:
 https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter.
@@ -352,5 +371,9 @@ http://blog.propaneapps.com/android/mvp-for-android/. [Accessed 15 06 2017].
 [16] J. Birch, "Android Do you even map though? Data model mapping in Android Apps" 21 12 2017. [Online]. Available:
 https://overflow.buffer.com/2017/12/21/even-map-though-data-model-mapping-android-apps/. [Accessed 22 02 2018].
 
+[17] M. Fowler, "GUI Architectures," 18 07 2006. [Online]. Available: https://martinfowler.com/eaaDev/uiArchs.html. [Accessed 26 02 2018].
+
+[18] Manoj Jaggavarapu, "Presentation Patterns : MVC, MVP, PM, MVVM," 02 05 2012. [Online]. Available: https://manojjaggavarapu.wordpress.com/2012/05/02/presentation-patterns-mvc-mvp-pm-mvvm/. [Accessed 03 03 2018].
+
 ---
-Last Edited: 22.02.2018
+Last Edited: 03.03.2018
