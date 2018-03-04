@@ -113,7 +113,7 @@ Figure reference: [[6]](#references)
 Figure reference: [[6]](#references)
 
 
-## References
+## 4. References
 
 [1] Martin Fowler, "GUI Architectures," 18 07 2006. [Online]. Available: https://martinfowler.com/eaaDev/uiArchs.html. [Accessed 26 02 2018].
 
@@ -125,7 +125,6 @@ Figure reference: [[6]](#references)
 [4] Martin Fowler, "Observer Synchronization," 08 09 2004. [Online]. Available: https://martinfowler.com/eaaDev/MediatedSynchronization.html. [Accessed 02 03 2018].
 
 [5] Stephen Walther, "The Evolution of MVC," 24 08 2008. [Online]. Available: http://stephenwalther.com/archive/2008/08/24/the-evolution-of-mvc. [Accessed 02 03 2018].
-[4] Martin Fowler, "Observer Synchronization," 08 09 2004. [Online]. Available: https://martinfowler.com/eaaDev/MediatedSynchronization.html. [Accessed 02 03 2018].
 
 [6] Manoj Jaggavarapu, "Presentation Patterns : MVC, MVP, PM, MVVM," 02 05 2012. [Online]. Available: https://manojjaggavarapu.wordpress.com/2012/05/02/presentation-patterns-mvc-mvp-pm-mvvm/. [Accessed 03 03 2018].
 
