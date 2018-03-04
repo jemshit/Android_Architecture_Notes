@@ -3,20 +3,20 @@ Derived from many blog posts, websites, online discussions and experiences. Even
 
 This repo aims to be note to lookup for below topics. It can also be good reference when trying to explain these topics to colleagues.
 
-##### 1. Clean Architecture notes
+### 1. Clean Architecture notes
 Not ready yet
 
-##### 2. [MVC notes](https://github.com/jemshit/android_architecture_notes/blob/master/mvc_cheatsheet.md)
+### 2. [MVC notes](https://github.com/jemshit/android_architecture_notes/blob/master/mvc_cheatsheet.md)
 
 This is not Android specific note, but MVC variants in general. So difference between these patterns can be seen.
 
-##### 3. [MVP notes](https://github.com/jemshit/android_architecture_notes/blob/master/mvp_cheatsheet.md)
+### 3. [MVP notes](https://github.com/jemshit/android_architecture_notes/blob/master/mvp_cheatsheet.md)
 Especially from Android perspective
 
-##### 4. MVVM notes
+### 4. MVVM notes
 Not ready yet
 
-##### 5. Pattern Differences note
+### 5. Pattern Differences note
 Not ready yet (Draft)
 
 ---
