@@ -120,7 +120,6 @@ Figure reference: [[6]](#references)
 [2] Martin Fowler, "Data Binding," 25 05 2006. [Online]. Available: https://martinfowler.com/eaaDev/DataBinding.html. [Accessed 26 02 2018].
 
 [3] Martin Fowler, "Flow Synchronization," 15 11 2004. [Online]. Available: https://martinfowler.com/eaaDev/FlowSynchronization.html. [Accessed 02 03 2018].
-[2] Martin Fowler, "Data Binding," 25 05 2006. [Online]. Available: https://martinfowler.com/eaaDev/DataBinding.html. [Accessed 26 02 2018].
 
 [4] Martin Fowler, "Observer Synchronization," 08 09 2004. [Online]. Available: https://martinfowler.com/eaaDev/MediatedSynchronization.html. [Accessed 02 03 2018].
 
