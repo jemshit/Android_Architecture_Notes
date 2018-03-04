@@ -1,5 +1,14 @@
 # Differences
 
+Why use patterns ?
+> "Well one can certainly build software applications without using any of these patterns, but by using these patterns we can achieve separation of concerns design principle. These help in improving maintainability of the application. Another important reason why these patterns became popular is implementing these patterns improve the testability of the application using automated unit tests." [[2]](#references)
+
+
+#### MVC, Model 2, MVP, PM, MVVM
+![MVC JSP diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/presentation_patterns.png)
+[[2]](#references)
+
+---
 ![Differences](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvc_mvp_mvvm.png)
 [[1]](#references)
 
@@ -49,6 +58,7 @@ That's one of the biggest diferences between MVC and traditional ASP.NET webform
 
 [1] "MVVM Compared To MVC and MVP," 21 11 2009. [Online]. Available: https://web.archive.org/web/20170829105757/http://geekswithblogs.net/dlussier/archive/2009/11/21/136454.aspx. [Accessed 03 03 2018].
 
+[2] Manoj Jaggavarapu, "Presentation Patterns : MVC, MVP, PM, MVVM," 02 05 2012. [Online]. Available: https://manojjaggavarapu.wordpress.com/2012/05/02/presentation-patterns-mvc-mvp-pm-mvvm/. [Accessed 03 03 2018].
 
 ---
 Last Edited: 03.03.2018

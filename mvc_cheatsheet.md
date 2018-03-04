@@ -1,33 +1,36 @@
 # MVC (Model-View-Controller)
 
-Why use patterns ?
-> "Well one can certainly build software applications without using any of these patterns, but by using these patterns we can achieve separation of concerns design principle. These help in improving maintainability of the application. Another important reason why these patterns became popular is implementing these patterns improve the testability of the application using automated unit tests." [[6]](#references)
-
-## Original definition
-Original paper link: http://heim.ifi.uio.no/~trygver/2007/MVC_Originals.pdf
+## 1. Original definition
+> Original paper [link](http://heim.ifi.uio.no/~trygver/2007/MVC_Originals.pdf)
 
 "He originally defined Models, Views, and Controllers like this:
-- **MODELS** – *Models represent knowledge.* A model could be a single object (rather uninteresting), or it could be some structure of objects.
-- **VIEWS** — *A view is a (visual) representation of its model*. It would ordinarily highlight certain attributes of the model and suppress others. *It is thus acting as a presentation filter*.
-- **CONTROLLERS** — *A controller is the link between a user and the system*. It provides the user with input by arranging for relevant views to present themselves in appropriate places on the screen. It provides means for user output by presenting the user with menus or other means of giving commands and data. The controller receives such user output, translates it into the appropriate messages and passes these messages on to one or more of the views." [[5]](#references)
+
+- **Models** – *Models represent knowledge.* A model could be a single object (rather uninteresting), or it could be some structure of objects.
+
+- **Views** - *A view is a (visual) representation of its model*. It would ordinarily highlight certain attributes of the model and suppress others. *It is thus acting as a presentation filter*.
+
+- **Controllers** - *A controller is the link between a user and the system*. It provides the user with input by arranging for relevant views to present themselves in appropriate places on the screen. It provides means for user output by presenting the user with menus or other means of giving commands and data. The controller receives such user output, translates it into the appropriate messages and passes these messages on to one or more of the views." [[5]](#references) (Controller does not update view directly though)
 
 
-## Original definition interpretation
+## 2. Original definition interpretation
 
-#### by Stephen Walther
+#### a) By Stephen Walther
 
 "In the context of a Graphical User Interface, the Model View Controller pattern was interpreted like this:
 
-- **MODEL** – *A particular piece of data* represented by an application. For example, weather station temperature reading.
-- **VIEW** – *One representation of data from the model.* **The same model might have multiple views associated with it.** For example, a temperature reading might be represented by both a label and a bar chart. The views are associated with a particular model through the Observer relationship.
-- **CONTROLLER** – *Collects user input and modifies the model.* For example, the controller might collect mouse clicks and keystrokes and update the Model." [[5]](#references)
+- **Model** - *A particular piece of data* represented by an application. For example, weather station temperature reading.
 
-![MVC original diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvc_original.png)
+- **View** - *One representation of data from the model.* **The same model might have multiple views associated with it.** For example, a temperature reading might be represented by both a label and a bar chart. **The views are associated with a particular model through the Observer relationship.**
+
+- **Controller** - **Collects user input and modifies the model.** For example, the controller might collect mouse clicks and keystrokes and update the Model." [[5]](#references)
+
+<img align="middle"  src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvc_original.png" width="450" height="264"/>
+
 
 "Notice, in this figure, **that the View is updated indirectly from the Model.** When the Model changes, the Model raises an event, and the View changes in response to the event. Also, **notice that the Controller does not interact directly with the View.** Instead, the Controller modifies the Model, and since the View is observing the Model, the View gets updated. According to Martin Fowler, the primary benefit of this original version of the MVC pattern is *Separated Presentation* (which is described below)..." [[5]](#references)
 
 
-#### by Martin Fowler
+#### b) by Martin Fowler
 Lets start with data states before discussion:
 - **Record state** (copy of data in database) [[1]](#references)
 - **Session state** (in-memory record sets in application. “Essentially this provides a temporary local version of the data that the user works on until they save, or commit it, back to the database - at which point it merges with the record state.”) [[1]](#references)
@@ -63,7 +66,7 @@ Now lets check definition of **Data Binding** to understand one way of *synchron
 - **Observer Synchronization**: Have views (and controllers) observe the model to allow multiple widgets to update without needed to communicate directly. [[1]](#references)
 
 
-#### by Manoj Jaggavarapu
+#### c) by Manoj Jaggavarapu
 "In MVC pattern, model, view, controller triad exists for each object that can be manipulated by the user. Lets see what each of these does
 
 - **Model :** Model means data, that is required to display in the view. It can sometimes be the exact data entities that are retrieved from the business layer or a variation of it. *Model encapsulates business tier.*
@@ -91,11 +94,6 @@ JavaServer Pages (JSP) had Model 2 method for creating application. In this meth
 "The main difference between classic MVC and Model2 is that **there is no direct contact between view and model. The Model in this pattern is not your typical business entities or Business layer, it’s more of a ViewModel** that captures the state of the view.  **The controller will be the one who will talk to BLL and update the model.  The interaction between the view and model is an indirect relationship.** Below sequence diagram depicts Model2 interactions using sequence diagram :"
 
 ![Model2 Sequence Diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/model2_mvc_sequence.png)
-
-
-#### MVC, Model 2, MVP, PM, MVVM
-![MVC JSP diagram](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/presentation_patterns.png)
-[[6]](#references)
 
 
 ## References
