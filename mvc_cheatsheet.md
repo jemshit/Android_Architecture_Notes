@@ -25,6 +25,7 @@
 - **Controller** - **Collects user input and modifies the model.** For example, the controller might collect mouse clicks and keystrokes and update the Model." [[5]](#references)
 
 <p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvc_original.png" width="450" height="264" alt="MVC original diagram"/></p>
+
 Figure reference: [[5]](#references)
 
 "Notice, in this figure, **that the View is updated indirectly from the Model.** When the Model changes, the Model raises an event, and the View changes in response to the event. Also, **notice that the Controller does not interact directly with the View.** Instead, the Controller modifies the Model, and since the View is observing the Model, the View gets updated. According to Martin Fowler, the primary benefit of this original version of the MVC pattern is *Separated Presentation* (which is described below)..." [[5]](#references)
@@ -96,16 +97,19 @@ JavaServer Pages (JSP) had Model 2 method for creating application. In this meth
 **In this new version of the MVC model, there is no longer any relationship between the View and the Model. All communication between View and Model happens through the controller...** Several web application frameworks have adopted the Model 2 MVC pattern. In the Java world, these frameworks include Struts, Tapestry, and Spring. In the Ruby world, these frameworks include Ruby on Rails and Merb. In the Python world, these frameworks include Django. And, of course, in the ASP.NET world, these frameworks include ASP.NET MVC." [[5]](#references)
 
 <p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvc_jsp.png" width="446" height="265" alt="MVC JSP diagram"/></p>
+
 Figure reference: [[5]](#references)
 
 "In Model 2 pattern, **all web post requests go to front controller**, implemented as a http interceptor (http module in ASP.NET ), **which in turn figures out the appropriate controller depending on the structure of the incoming request URL** and services the request. The controller invokes a method that affects the model. The following diagram depicts the structure of Model2 pattern:" [[6]](#references)
 
 <p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/model2_mvc.png" width="512" height="379" alt="MVC Model2 diagram"/></p>
+
 Figure reference: [[6]](#references)
 
 "The main difference between classic MVC and Model2 is that **there is no direct contact between view and model. The Model in this pattern is not your typical business entities or Business layer, it’s more of a ViewModel** that captures the state of the view.  **The controller will be the one who will talk to BLL and update the model.  The interaction between the view and model is an indirect relationship.** Below sequence diagram depicts Model2 interactions using sequence diagram." [[6]](#references) View knows what model is going to be shown but does not query model or does not knwo how to query model. Also model does not have reference to view. Controller updates model and renders view with new appropriate model.
 
 <p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/model2_mvc_sequence.png" width="447" height="553" alt="Model2 sequence diagram"/></p>
+
 Figure reference: [[6]](#references)
 
 
