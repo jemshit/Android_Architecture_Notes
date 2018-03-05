@@ -80,7 +80,7 @@ Figure reference: [[9]](#6-references)
 
 "The basic idea of the Dependency Injection is to have a separate object, an assembler, that populates a field in the lister class with an appropriate implementation for the finder interface." [[9]](#6-references)
 
-<p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/ioc_injector.jpg" width="446" height="211" alt="UML"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/ioc_inject.jpg" width="446" height="211" alt="UML"/></p>
 
 Figure reference: [[9]](#6-references)
 
@@ -255,5 +255,6 @@ Figure reference: [[3]](#6-references)
 [11] Martin Fowler, "InversionOfControl," 26 06 2005. [Online]. Available: https://martinfowler.com/bliki/InversionOfControl.html. [Accessed 02 03 2018]
 
 [12] Martin Fowler, "Registry," [Online]. Available: https://martinfowler.com/eaaCatalog/registry.html. [Accessed 02 03 2018]
+
 ---
 Last Edited: 05.03.2018
