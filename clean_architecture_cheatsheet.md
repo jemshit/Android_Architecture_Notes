@@ -238,15 +238,87 @@ Figure reference: [[3]](#6-references)
 
 ## 5. Clean Architecture for Android
 
+"The general structure for an Android app looks like this:
+
+- **Outer layer packages:** UI, Storage, Network, etc.
+
+- **Middle layer packages:** Presenters, Converters (mappers)
+
+- **Inner layer packages:** Interactors (use cases), Models, Repositories (interfaces only), Executor" [[6]](#6-references)
+
+
+#### a) Outer Layer
+
+"... this is where the framework details go.
+- **UI**- This is where you put all your Activities, Fragments, Adapters and other Android code related to the user interface.
+
+- **Storage**- Database specific code that implements the interface our Interactors use for accessing data and storing data. This includes, for example, ContentProviders or ORM-s such as DBFlow.
+
+- **Network**- Things like Retrofit go here." [[6]](#6-references)
+
+
+#### b) Middle Layer
+
+"Glue code layer which connects the implementation details with your business logic.
+
+- **Presenters**— Presenters handle events from the UI (e.g. user click) and usually serve as callbacks from inner layers (Interactors).
+
+- **Converters**— Converter objects are responsible for converting inner models to outer models and vice versa." [[6]](#6-references)
+
+
+#### c) Inner Layer
+
+"The core layer contains the most high-level code. All classes here are POJOs. Classes and objects in this layer have no knowledge that they are run in an Android app and can easily be ported to any machine running JVM.
+
+- **Interactors**— These are the classes which actually contain your business logic code. These are run in the background and communicate events to the upper layer using callbacks. They are also called **UseCases** in some projects (probably a better name). It is normal to have a lot of small Interactor classes in your projects that solve specific problems. This conforms to the Single Responsibility Principle and in my opinion is easier on the brain.
+
+- **Models**— These are your business models that you manipulate in your business logic.
+
+- **Repositories**— This package only contains *interfaces* that the database or some other outer layer implements. These interfaces are used by Interactors to access and store data. This is also called a repository pattern." [[6]](#6-references)
+
+---
+In the Android community, layers above mentioned are not used ("outer layer", "middle layer" and "inner layer"). But instead layers (packages or android modules precisely) below is used.
+
+<p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/clean_architecture_android.png" width="504" height="219" alt="Clean Architecture Android"/></p>
+
+Figure reference: [[5]](#6-references)
+
+#### Presentation layer
+- “In here, where the logic related with views and animations happens. It uses no more than a Model View Presenter (MVP from now on), but you can use any other pattern like MVC or MVVM. I will not get into details on it, but here fragments and activities are only views, there is no logic inside them other than UI logic, and this is where all the rendering stuff takes place.” [[5]](#6-references)
+
+#### Domain layer
+- “Business rules here: all the logic happens in this layer. Regarding the android project, you will see all the interactors (use cases) implementations here as well. This layer is a pure java module without any android dependencies. All the external components use interfaces when connecting to the business objects.” [[5]](#6-references)
+
+- "Interactors shouldn’t know anything about Android. There are ways to do threads only using Java, but even Android tools can be used by using dependency inversion. Core can use Android functions via interfaces and dependency injection. Your framework layer can implement an interface with the methods you need in your interactor. You could, for instance, wrap an AsyncTask with a core class, use that core class as the basis of asynchronous calls, and communicate back via Callbacks or an event bus" [[1]](#6-references)
+
+#### Data layer
+- “All data needed for the application comes from this layer through a UserRepository implementation (the interface is in the domain layer) that uses a Repository Pattern with a strategy that, through a factory, picks different data sources depending on certain conditions. For instance, when getting a user by id, the disk cache data source will be selected if the user already exists in cache, otherwise the cloud will be queried to retrieve the data and later save it to the disk cache. The idea behind all this is that the data origin is transparent for the client, which does not care if the data is coming from memory, disk or the cloud, the only truth is that the data will arrive and will be got.” [[5]](#6-references)
+
+To explain Presentation, Data, Domain layers more in "cleanish" way, this figure is better illustration:
+
+<p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/cleanish_android.png" width="505" height="397" alt="Cleanish Android"/></p>
+
+As you can see, it makes sense to separate "Infrastructure" (as in Onion architecture) and "UI, Framework" into different modules (layers) even they stay on same layer in Clean Architecture. "Infrastructure" implements "Repository Interfaces" and "UI, Framework" depends on "Interface Adapters". "Interface Adapters" could be separated in separate module (layer) to force pure java (kotlin) code.
+
+> **Repository definition**: "A system with a complex domain model often benefits from a layer, such as the one provided by Data Mapper (165), that isolates domain objects from details of the database access code. In such systems it can be worthwhile to build another layer of abstraction over the mapping layer where query construction code is concentrated. This becomes more important when there are a large number of domain classes or heavy querying. In these cases particularly, adding this layer helps minimize duplicate query logic. A Repository mediates between the domain and data mapping layers, acting like an in-memory domain object collection. Client objects construct query specifications declaratively and submit them to Repository for satisfaction. Objects can be added to and removed from the Repository, as they can from a simple collection of objects, and the mapping code encapsulated by the Repository will carry out the appropriate operations behind the scenes. Conceptually, a Repository encapsulates the set of objects persisted in a data store and the operations performed over them, providing a more object-oriented view of the persistence layer. Repository also supports the objective of achieving a clean separation and one-way dependency between the domain and data mapping layers" [[7]](#6-references)
+- From the definition above (2nd sentence), repository can have query construction. Also repository is needed when heavy querying is done or too many domain classes. 3rd sentence says it helps to minimize query duplication. It does not say it is the only reason to use Repository. But it helps to achieve this aim (it can hold single addPerson(id) method in repository so everybody uses this method and no addPerson query logic is duplicated). From 6th sentence, you pass the query, parameter, argument declaratively, which means you do not say how you do it (imperative). So it does not have to be sql query! From 8th sentence repository is over data source and abstract it, so domain classes don’t depend on any implementation detail of data source.
 
 
 ## 6. References
+
+[1] A. Leiva, "MVP for Android: how to organize the presentation layer," 15 04 2014. [Online]. Available: https://antonioleiva.com/mvp-android/. [Accessed 14 06 2017].
 
 [2] Robert C. Martin, "Clean Architecture," NDC Conferences, 2012.
 
 [3] Ubcle Bob (Robert C. Martin), "The Clean Architecture," 13 08 2012. [Online]. Available: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html. [Accessed 26 02 2018].
 
 [4] Jeffrey Palermo, "The Onion Architecture : part 1," 29 07 2008. [Online]. Available: http://jeffreypalermo.com/blog/the-onion-architecture-part-1/. [Accessed 26 02 2018].
+
+[5] Fernando Cejas, "Architecting Android...The clean way?," 3 09 2014. [Online]. Available: https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/. [Accessed 26 02 2018].
+
+[6] Dario Miličić, "A detailed guide on developing Android apps using the Clean Architecture pattern," 3 02 2016. [Online]. Available: https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029. [Accessed 26 02 2018].
+
+[7] Martin Fowler, "Repository," [Online]. Available: https://martinfowler.com/eaaCatalog/repository.html. [Accessed 02 03 2018].
 
 [9] Martin Fowler, "Inversion of Control Containers and the Dependency Injection pattern," 23 01 2004. [Online]. Available: https://martinfowler.com/articles/injection.html. [Accessed 02 03 2018].
 
