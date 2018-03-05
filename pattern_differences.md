@@ -73,6 +73,8 @@ that the loading animation should be displayed now or that the ListView should b
 
 - You’ll also notice that the View has no idea about the Model in the MVVM pattern. This is because, as far as the View knows, its “Model” IS the View Model (hence its name). Because of how data-binding and other features like commanding work in WPF and Silverlight, there is rich communication between the View and View Model, isolating the View from having to know anything about what’s really happening behind the scenes." [[1]](#3-references)
 
+#### d) PM
+Presentation Model definition: https://martinfowler.com/eaaDev/PresentationModel.html
 
 ## 3. References
 

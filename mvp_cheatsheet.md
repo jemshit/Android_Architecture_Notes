@@ -1,5 +1,7 @@
 # MVP (Model-View-Presenter)
 
+> Potel paper link: http://www.wildcrest.com/Potel/Portfolio/mvp.pdf
+
 ## Introduction
 
 - "MVP is a *user interface architectural pattern* engineered to
