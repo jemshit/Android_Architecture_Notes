@@ -296,6 +296,8 @@ Figure reference: [[5]](#6-references)
 
 - Unaware of presentation layer but aware of framework, tools...
 
+- Repository is **only way to access and modify** the Data.  You can add, change, swap data sources in Repository and whoever uses Repository won't be affected. If an Entity can be get from different data sources (network, DB) inside Repository, make DB single source of truth and save data from network in DB and only get data from DB.
+
 Dependency may look like `Presentation -> Domain -> Data` but it is not correct.  To explain layers more in "cleanish" way, this figure is better illustration:
 
 <p align="center"><img src="https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/cleanish_android.png" width="505" height="397" alt="Cleanish Android"/></p>

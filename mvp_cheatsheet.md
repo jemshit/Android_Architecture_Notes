@@ -180,6 +180,8 @@ Figure reference: [[18]](#7-references)
 
 - Save View's state (loading, showing error...) inside View (Activity...) itself
 
+- Use Architecture Component's *ViewModel* as Presenter (attach, detach View when configuration change occurs) [[20]](#7-references)
+
 
 ## 5. Code Repositories
 
@@ -310,6 +312,9 @@ https://overflow.buffer.com/2017/12/21/even-map-though-data-model-mapping-androi
 [18] Manoj Jaggavarapu, "Presentation Patterns : MVC, MVP, PM, MVVM," 02 05 2012. [Online]. Available: https://manojjaggavarapu.wordpress.com/2012/05/02/presentation-patterns-mvc-mvp-pm-mvvm/. [Accessed 03 03 2018].
 
 [19] "What are MVP and MVC and what is the difference?," [Online]. Available: https://stackoverflow.com/a/101561/3736955. [Accessed 03 03 2018].
+
+[20] Jose Alcérreca, "ViewModels and LiveData: Patterns + AntiPatterns," [Online]. Available: https://medium.com/@JoseAlcerreca/yep-if-you-use-viewmodel-as-a-presenter-you-need-a-reference-to-the-view-b853879ccd0e. [Accessed 21 03 2018].
+
 
 ---
 Last Edited: 04.03.2018
