@@ -3,7 +3,10 @@
 "Model/View/ViewModel is a variation of Model/View/Controller (MVC) that is tailored for modern UI development platforms
 where the View is the responsibility of a designer rather than a classic developer.
 The designer is generally a more graphical, artistic focused person, and does less classic coding than a traditional developer..
-The design is almost always done in a declarative form like HTML or XAML.." [[8]](#references)
+The design is almost always done in a declarative form like HTML or XAML.." [[8]](#references). 
+"Just like its MVC predecessor, the View in MVVM can bind to the data and display updates, but without any coding at all,
+just using XAML markup extensions. This way, the View is under the designer’s control, but can update its state from the
+domain classes using the WPF binding mechanism. This fits the description of the Presentation Model pattern." [[9]](#references). 
 
 ![MVVM](https://raw.githubusercontent.com/jemshit/android_architecture_notes/master/media_files/mvvm.png)
 [[1]](#references)
@@ -20,7 +23,7 @@ The design is almost always done in a declarative form like HTML or XAML.." [[8]
 ## 2. View
 
 - "Defines the structure, layout and appearance of a view on screen" [[2]](#references)
-- "View in MVVM is similar to view in PM. It contains only the UI elements. The interaction between view and ViewModel happens using Data Binding, Commands and Notifications..." [[1]](#references)
+- "View in MVVM is similar to view in PM. It contains only the UI elements. The interaction between View and ViewModel happens using Data Binding, Commands and Notifications..." [[1]](#references)
 - "..ViewModel only provides the data, whereas the View is responsible for consuming them." [[5]](#references)
 - In Android, View can consume data using _LifecycleOwner_ and _LiveData_ classes, which stops observing (unsubscribes/disposes) the data at corresponding lifecycles automatically
 - "Even if the View gets to decide how to handle data, that does not mean it needs to contain complicated logic. The idea is that ViewModel provides data in a form that View **simply takes and display** - no manipulation required." [[5]](#references)
@@ -71,3 +74,5 @@ Cons:
 [7] Jose Alcérreca, "ViewModels and LiveData: Patterns + AntiPatterns" 12 09 2017. [Online]. Available: https://medium.com/androiddevelopers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54. [Accessed 21 10 2020].
 
 [8] John Gossman, "Introduction to Model/View/ViewModel pattern for building WPF apps" 08 10 2015. [Online]. Available: https://docs.microsoft.com/en-us/archive/blogs/johngossman/introduction-to-modelviewviewmodel-pattern-for-building-wpf-apps. [Accessed 21 10 2020].
+
+[9] alexy.shelest, "Model View Controller, Model View Presenter, and Model View ViewModel Design Patterns" 03 10 2009. [Online]. Available: https://www.codeproject.com/Articles/42830/Model-View-Controller-Model-View-Presenter-and-Mod. [Accessed 21 10 2020].
