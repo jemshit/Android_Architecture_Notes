@@ -126,6 +126,3 @@ Figure reference: [[6]](#4-references)
 [5] Stephen Walther, "The Evolution of MVC," 24 08 2008. [Online]. Available: http://stephenwalther.com/archive/2008/08/24/the-evolution-of-mvc. [Accessed 02 03 2018].
 
 [6] Manoj Jaggavarapu, "Presentation Patterns : MVC, MVP, PM, MVVM," 02 05 2012. [Online]. Available: https://manojjaggavarapu.wordpress.com/2012/05/02/presentation-patterns-mvc-mvp-pm-mvvm/. [Accessed 03 03 2018].
-
----
-Last Edited: 04.03.2018

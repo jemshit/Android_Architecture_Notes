@@ -10,18 +10,13 @@ General and Android specific
 ## Presentation Patterns (Delivery Mechanisms)
 ### 1. [MVC notes](https://github.com/jemshit/android_architecture_notes/blob/master/mvc_cheatsheet.md)
 
-This is not Android specific note, but MVC variants in general. So difference between these patterns can be seen.
+This is MVC variants in general (not Android specific), so difference between these patterns can be seen.
 
 ### 2. [MVP notes](https://github.com/jemshit/android_architecture_notes/blob/master/mvp_cheatsheet.md)
-Especially from Android perspective
+MVP in general and from Android perspective
 
-### 3. MVVM notes
-Not ready yet
+### 3. [MVVM notes](https://github.com/jemshit/android_architecture_notes/blob/master/mvvm_cheatsheet.md)
+MVVM in general and from Android perspective
 
 ### 4. [Pattern Differences note](https://github.com/jemshit/android_architecture_notes/blob/master/pattern_differences.md)
 MVC vs MVP vs MVVM
-
----
-- To contribute, add comment to these issues [clean architecture issue](https://github.com/jemshit/android_architecture_notes/issues/1), [mvp issue](https://github.com/jemshit/android_architecture_notes/issues/2), [mvvm issue](https://github.com/jemshit/android_architecture_notes/issues/3)
-
-- To discuss, create new issue.

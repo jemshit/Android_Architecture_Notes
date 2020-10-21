@@ -73,6 +73,8 @@ that the loading animation should be displayed now or that the ListView should b
 
 - You’ll also notice that the View has no idea about the Model in the MVVM pattern. This is because, as far as the View knows, its “Model” IS the View Model (hence its name). Because of how data-binding and other features like commanding work in WPF and Silverlight, there is rich communication between the View and View Model, isolating the View from having to know anything about what’s really happening behind the scenes." [[1]](#3-references)
 
+- "..ViewModel only provides the data, whereas the View is responsible for consuming them." [[7]](#references)
+
 #### d) PM
 Presentation Model definition: https://martinfowler.com/eaaDev/PresentationModel.html
 
@@ -90,5 +92,4 @@ Presentation Model definition: https://martinfowler.com/eaaDev/PresentationModel
 
 [6] Martin Fowler, "GUI Architectures," 18 07 2006. [Online]. Available: https://martinfowler.com/eaaDev/uiArchs.html. [Accessed 26 02 2018].
 
----
-Last Edited: 04.03.2018
+[7] Kamil Seweryn, "MVP to MVVM transformation" 20 01 2018. [Online]. Available: https://proandroiddev.com/mvp-to-mvvm-transformation-611959d5e0ca. [Accessed 21 10 2020].

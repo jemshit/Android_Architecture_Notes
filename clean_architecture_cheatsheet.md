@@ -332,6 +332,3 @@ As you can see, it makes sense to separate "Infrastructure" (as in Onion archite
 [11] Martin Fowler, "InversionOfControl," 26 06 2005. [Online]. Available: https://martinfowler.com/bliki/InversionOfControl.html. [Accessed 02 03 2018]
 
 [12] Martin Fowler, "Registry," [Online]. Available: https://martinfowler.com/eaaCatalog/registry.html. [Accessed 02 03 2018]
-
----
-Last Edited: 05.03.2018
