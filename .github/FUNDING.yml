@@ -1,0 +1,4 @@
+# These are supported funding model platforms
+
+github: [jemshit]
+custom: ['https://etherscan.io/address/0x355781C0Bc3cdeFE26d7767EE36976ffE4bE9459', 'https://www.bscscan.com/address/0x355781C0Bc3cdeFE26d7767EE36976ffE4bE9459', 'https://www.blockchain.com/btc/address/bc1qa4lzsq8c2dqsnh9e5j7sw8cxryl8ca9as0j4ex', 'https://blockchair.com/litecoin/address/ltc1qzwwmdypzcje2aqpuk2vcz6h0kxs9ky7wewt27u', 'https://explorer.solana.com/address/BAJKDUY4zJUAFt3VWHjftxbMgFw15ZGxpdAi6kkYb7ts']
